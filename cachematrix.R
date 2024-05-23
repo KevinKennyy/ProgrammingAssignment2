@@ -63,3 +63,26 @@ cacheSolve <- function(x, ...) {
   
   inv  # Retorna la inversa calculada
 }
+
+Ejemplo de uso
+A continuación, te muestro un ejemplo de cómo usar estas funciones:
+# Crea una matriz invertible
+my_matrix <- matrix(c(2, 1, 1, 2), nrow = 2, ncol = 2)
+
+# Crea el objeto "matriz" especial usando makeCacheMatrix
+cached_matrix <- makeCacheMatrix(my_matrix)
+
+# Calcula y almacena en caché la inversa usando cacheSolve
+inverse_matrix <- cacheSolve(cached_matrix)
+
+# Muestra la inversa
+print(inverse_matrix)
+
+# Llama a cacheSolve nuevamente para obtener la inversa desde la caché
+inverse_matrix <- cacheSolve(cached_matrix)
+
+# Muestra la inversa desde la caché
+print(inverse_matrix)
+
+La primera llamada a cacheSolve calculará y almacenará en caché la inversa de la matriz. 
+La segunda llamada recuperará la inversa desde la caché sin necesidad de recalcularla, mostrando el mensaje "getting cached data".
